@@ -1,0 +1,14 @@
+[profile.release]
+debug = true
+strip = false
+
+[package]
+name = "io-lo"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+path = "src/scan.rs"
+test = true
+
+[dependencies]
