@@ -1,3 +1,4 @@
+/// repo: https://github.com/lveeeeeeeeeee/io-lo.git
 pub mod scan {
     use std::io::BufRead;
     use std::str::FromStr;
