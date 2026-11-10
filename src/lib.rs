@@ -39,7 +39,7 @@ pub mod scan {
         scanned_amt: usize,
         // store the intermediate result in case there wasnt a whole token present
         tip: Vec<u8>,
-        bitmask: u128
+        pub bitmask: u128
     }
 
     impl<R: BufRead> Scanner<R> {
@@ -159,10 +159,8 @@ pub mod scan {
 
         pub unsafe fn next_vec<T: FromStr>(&mut self) -> Vec<T> {
             let mut res: Vec<T> = Vec::new();
-            unsafe {
-                while let Some(token) = self.next_parse_opt::<T>() {
-                    res.push(token);
-                }
+            while let Some(token) = unsafe { self.next_parse_opt::<T>() } {
+                res.push(token);
             }
             res
         }
